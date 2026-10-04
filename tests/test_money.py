@@ -44,6 +44,13 @@ def test_format_negative():
     assert format_amount(-1234.5) == "-1,234.50"
 
 
+def test_format_int_keeps_digits():
+    assert format_amount(1234) == "1,234.00"
+    assert format_amount(0) == "0.00"
+    assert format_amount(-1234) == "-1,234.00"
+    assert format_amount(1234, digits=0) == "1,234"
+
+
 def test_format_rejects_negative_digits():
     with pytest.raises(ValueError):
         format_amount(1.0, digits=-1)

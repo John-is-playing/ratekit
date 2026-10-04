@@ -48,5 +48,6 @@ def format_amount(value: float, *, digits: int = 2) -> str:
         raise ValueError("digits 不能为负数")
 
     if isinstance(value, int):
-        return f"{value:,}"
+        whole = f"{value:,}"
+        return f"{whole}.{'0' * digits}" if digits else whole
     return f"{value:,.{digits}f}"
