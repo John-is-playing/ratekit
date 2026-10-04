@@ -40,6 +40,10 @@ def test_format_digits():
     assert format_amount(5, digits=0) == "5"
 
 
+def test_format_integer():
+    assert format_amount(1234) == "1,234.00"
+
+
 def test_format_negative():
     assert format_amount(-1234.5) == "-1,234.50"
 
